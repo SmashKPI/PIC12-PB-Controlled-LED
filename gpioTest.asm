@@ -3,7 +3,7 @@
 ;	Author:	DTsebrii
 ;	Date:	02/27/2021
 ;	Description:	Program to turn on and the LED on PIC12F1822 if
-;					user presses a pushbotton
+;			user presses a pushbotton
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;
 ;
@@ -30,7 +30,7 @@ FreqVal		EQU	b'01110000'	; 8MHz
 InitPort	EQU	b'00000000'	; PORTA all Voltage are low
 TRISconf	EQU	b'11011111'	; All inputs except RA5 
 AllDigit	EQU	b'00000000'	; Variable to conf ANSELA
-LED			EQU	b'00000101'	; Representation of 5-th bit
+LED		EQU	b'00000101'	; Representation of 5-th bit
 #define	PUSHB	PORTA, 4 ; RA4 is pushbutton 
 
 	ORG	0x00
@@ -41,24 +41,20 @@ loop1
 	BANKSEL	PORTA 
 	BTFSS	PUSHB	; Check if pb is pressed
 	CALL	blowLED
-	;BSF		LATA, LED
 	BTFSC	PUSHB 
 	CALL	unblowLED
-	;BCF		LATA, LED
 	GOTO	loop1
 
 
 blowLED
 	BANKSEL	LATA
-	BSF		LATA, LED
+	BSF	LATA, LED
 	
 	RETURN
 
-
-
 unblowLED
 	BANKSEL	LATA
-	BCF		LATA, LED
+	BCF	LATA, LED
 	
 	RETURN
 
