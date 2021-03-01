@@ -30,7 +30,7 @@ FreqVal		EQU	b'01110000'	; 8MHz
 InitPort	EQU	b'00000000'	; PORTA all Voltage are low
 TRISconf	EQU	b'11011111'	; All inputs except RA5 
 AllDigit	EQU	b'00000000'	; Variable to conf ANSELA
-LED			EQU	b'00000101'	; Representation of 5-th bit
+LED		EQU	b'00000101'	; Representation of 5-th bit
 #define	PUSHB	PORTA, 4 ; RA4 is pushbutton 
 
 	ORG	0x00
