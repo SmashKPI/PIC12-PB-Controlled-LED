@@ -42,12 +42,12 @@ loop1
 	BTFSC	PUSHB	; Check if pb is pressed
 	GOTO	ledOff	; turn off LED 
 	BANKSEL	LATA	; set led otherwise
-	BSF		LATA, LED
+	BSF	LATA, LED
 	GOTO	loop1
 	BTFSS	PUSHB 
 ledOff
 	BANKSEL LATA
-	BCF		LATA, LED
+	BCF	LATA, LED
 	GOTO	loop1
 
 
